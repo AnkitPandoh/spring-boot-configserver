@@ -8,13 +8,15 @@
 spring.cloud.config.server.git.uri={HOME}/config 
 ```
  
- Go to ```**{HOME}/config** ``` and run following commands:
+ Go to your local system directory ```{HOME}/config ``` and run following commands:
 
 ```
  git init
  echo message: Default Hello World > application.yml
  echo message: Hello World from Dev > config-client-dev.yml
  echo message: Hello World from Prod > config-client-prod.yml
+ git add .
+ git commit -m 'adding properties'
 ```
 
 **Run**
