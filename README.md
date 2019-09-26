@@ -43,6 +43,35 @@ server.port=9999
 curl http://localhost:9999/message
 ```
 
+In order to reflect properties change dynamically without restarting the client use ``` @RefreshScope ```. Following changes are required:
+
+**pom.xml**
+
+```
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
+
+**application-properties**
+
+```
+management.endpoints.web.exposure.include=*
+```
+After updating the properties, use below command :
+
+```
+curl http://localhost:9999/actuator/refresh -d {} -H "Content-Type: application/json"
+```
+
+**Test**
+
+```
+curl http://localhost:9999/message
+```
+
+
 
 
  
